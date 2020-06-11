@@ -15,10 +15,10 @@ class MyFileBrowser(main.Ui_MainWindow, QtWidgets.QMainWindow):
         self.treeView.setContextMenuPolicy(QtCore.Qt.CustomContextMenu)
         self.treeView.customContextMenuRequested.connect(self.context_menu)
         self.populate()
-        self.text_edit()
+
 
     def populate(self):
-        path = "C:\\Users\\walte\\Desktop\\Classeur virtuel"
+        path = "C:\Windows"
         self.model = QtWidgets.QFileSystemModel()
         self.model.setRootPath((QtCore.QDir.rootPath()))
         self.treeView.setModel(self.model)
@@ -37,9 +37,6 @@ class MyFileBrowser(main.Ui_MainWindow, QtWidgets.QMainWindow):
         file_path = self.model.filePath(index)
         os.startfile(file_path)
 
-    def text_edit(self):
-        self.text_edit = QtGui.QTextEdit()
-        self.setCentralWidget(self.textEdit)
 
 
 if __name__ == '__main__':
@@ -47,4 +44,3 @@ if __name__ == '__main__':
     fb = MyFileBrowser()
     fb.show()
     app.exec_()
-
